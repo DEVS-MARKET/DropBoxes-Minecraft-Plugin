@@ -1,0 +1,11 @@
+name: DropBoxes
+version: '${project.version}'
+main: eu.devsmarket.dropboxes.DropBoxes
+api-version: 1.20
+authors: [ 0WhiteDev ]
+description: Minecraft Plugin for Drop Loot Chests around the World
+website: https://devsmarket.eu
+commands:
+  dropboxes:
+    description: DropBox Main Command
+    permission: dropbox.default

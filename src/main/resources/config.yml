@@ -1,0 +1,139 @@
+############################
+#        DEVS.MARKET       #
+#  DropBoxes Free Plugin   #
+############################
+
+# Possible items to drop
+
+# Settings info:
+# item: "minecraft item name" ("enchanted_golden_apple")
+# chance: chances of dropping this item in % (50 = 50%)
+# random_amount: Should the quantity of the item be random? (true/false)
+# amount: if random_amount is equal to true, 
+# then when drawing this item it will randomly select its quantity 
+# from 1 to the indicated value, 
+# if random_amount is equal to false, the item's value will always be the same
+# enchants: enchantments that the item should have (NAME LEVEL) -> (DIG_SPEED 5)
+# item_name: name of the item
+# item_lore: lore of the item
+common_items:
+  - item: "golden_apple"
+    chance: 50
+    random_amount: true
+    amount: 2
+  - item: "diamond"
+    chance: 50
+    random_amount: true
+    amount: 15
+    item_name: "&b&lDiamond :D"
+
+legendary_items:
+  - item: "enchanted_golden_apple"
+    chance: 80
+    random_amount: true
+    amount: 1
+  - item: "netherite_pickaxe"
+    chance: 10
+    random_amount: true
+    amount: 1
+    enchants:
+      - "DIG_SPEED 5"
+      - "LOOT_BONUS_BLOCKS 5"
+      - "DURABILITY 5"
+    item_name: "&3> &b&lLegendry Pickaxe &3<"
+    item_lore:
+      - "&8- &c&lLegendary Drop!"
+  - item: "netherite_axe"
+    chance: 10
+    random_amount: true
+    amount: 1
+    enchants:
+      - "DIG_SPEED 5"
+      - "LOOT_BONUS_BLOCKS 5"
+      - "DURABILITY 5"
+    item_name: "&3> &b&lLegendry Axe &3<"
+    item_lore:
+      - "&8- &c&lLegendary Drop!"
+
+# lootBoxes Settings
+
+# lootbox_chest_name: name in chest gui
+# lootbox_labels: text displayed above the chest
+# lootbox_chance: chance to spawn common lootbox (50 = 50%)
+# If you set a value of 90 for the chance of drawing common,
+# then legendary will have a 10% chance of drawing.
+# The chance of drawing legendary will always be 100% minus the chance of drawing common
+common_lootbox_chest_name: "&9&lLootBox"
+common_lootbox_labels:
+  - "&e&l⭐ &B&lLootBox &e&l⭐"
+  - "&7Click &c&lRMB &7to Open this LootBox!"
+legendary_lootbox_chest_name: "&6&lLegendary LootBox"
+legendary_lootbox_labels:
+  - "&e&l⭐ &6&lLegendary LootBox &e&l⭐"
+  - "&7Click &c&lRMB &7to Open this LootBox!"
+common_lootbox_chance: 90
+
+# World Settings
+
+# world_name: the name of the world where lootboxes appear
+# world_minX / world_maxX: here define the maximum range of random lootboxes spawn in position X
+# world_minZ / world_maxZ: here define the maximum range of random lootboxes spawn in position Z
+world_name: "world"
+world_minX: 0
+world_maxX: 100
+world_minZ: 0
+world_maxZ: 100
+
+# Lootboxes logic Settings
+
+# chance_per_slot: chance to draw an item for the chest slot
+# min_online_to_start_event: minimum number of players needed for the lootbox to appear
+# max_lootboxes_on_world: maximum number of unclaimed lootboxes per world
+# drop_per_min: time in minutes every new lootbox is supposed to drop
+# remove_chest_if_empty: if the lootbox is taken over and is empty, it will remove the chests if the value is true
+# different_messages_for_other_types: if value equals true then the message about the lootbox spawn will be different
+# for different types, if the value is false, then regardless of the type,
+# the message will always be the same as for the common type
+chance_per_slot: 25
+min_online_to_start_event: 5
+max_lootboxes_on_world: 5
+drop_per_min: 1
+remove_chest_if_empty: true
+different_messages_for_other_types: false
+
+# Bossbar Settings
+
+# bossbar_toggle: if the bossbar should be displayed
+# bossbar_visable_time: how long it should be displayed (in seconds)
+# bossbar_color: Bossbar color
+# lootbox_droped_bossbar: text that will be shown by the bossbar when the lootbox is dropped
+# Placeholders: 
+# %x% - X coordinates for the dropped lootbox
+# %z% - Z coordinates for the dropped lootbox
+bossbar_toggle: true
+bossbar_visable_time: 10
+bossbar_color: "BLUE"
+common_lootbox_droped_bossbar: "&b&lLootBox &7was dropped on: &c&l%x%&7, &c&l%z%&7!"
+legendary_lootbox_droped_bossbar: "&6&lLegendary LootBox &7was dropped on: &c&l%x%&7, &c&l%z%&7!"
+
+# Message Settings
+
+# Placeholders: 
+# %player% - nickname of the player who took over the lootbox
+# %x% - X coordinates for the lootboxes
+# %z% - Z coordinates for the lootboxes
+lootbox_event_canceled_message:
+  - "&8[&b&lLootBox&8] &7LootBox Event was canceled, there are not enough players!"
+common_lootbox_droped_message:
+  - "&8[&b&lLootBox&8] &7LootBox was dropped on: &c&l%x%&7, &c&l%z%&7!"
+legendary_lootbox_droped_message:
+  - "&8[&b&lLootBox&8] &6&lLegendary LootBox &7was dropped on: &c&l%x%&7, &c&l%z%&7!"
+lootbox_taken_over_message:
+  - "&8[&b&lLootBox&8] &7LootBox was taken over by: &c&l%player%&7!"
+lootbox_destroyed_message:
+    - "&8[&b&lLootBox&8] &7LootBox was &c&ldestroyed&7! &8(&7%x%&8, &7%z%&8)"
+lootbox_list_title: "&8=========[&b&lLootBoxes &7List&8]========="
+lootbox_list_label: "&8&l%number%. &7X: &b%x%&7, Z: &b%z%"
+lootbox_reload_message:
+  - "&8[&b&lLootBox&8] &7DropBoxes Plugin was reloaded &asuccessfully&7!"
+
